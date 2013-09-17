@@ -8,8 +8,7 @@
 -------------------------------------------------------------- */
 
 body, select, input, textarea {
-/*  color: #000;*/
-/*  font-family: "Comic Sans MS", cursive, sans-serif;*/
+  color: #000;
 }
 
 
@@ -17,11 +16,10 @@ body, select, input, textarea {
 -------------------------------------------------------------- */
 
 a, a:active, a:visited {
-/*  color: #ff40ff;*/
+  color: #518021;
 }
-
 a:hover {
-/*  color: #e500e5;*/
+  color: #40661b;
 }
 
 
@@ -29,16 +27,16 @@ a:hover {
 -------------------------------------------------------------- */
 
 #site-header {
-/*  color: #fff;*/
-/*  background-color: #994c99;*/
+  color: #000;
+  background-color: #ccff99;
 }
 
 #site-header a, #site-header a:active, #site-header a:visited {
-/*  color: #ff80ff;*/
+  color: #fff;
 }
 
 #site-header a:hover {
-  /* color: #ffbfff; */
+   color: #fff; 
 }
 
 
@@ -50,61 +48,53 @@ a:hover {
  * as to not break it scaling via media queries. */
 
 #site-title {
-/*  font-family: Impact, sans-serif;*/
-/*  color: #fff;*/
-/*  text-shadow: none;*/
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
 }
-
 #site-title a:link,
 #site-title a:visited {
-/*  font-size: 0.75em;*/
-/*  color: #fff;*/
+  text-shadow: none;
+  font-size: 0.5em;
+  color: #000;
 }
+#site-title a:hover {}
 
-#site-title a:hover {
-/*  color: #fff;*/
+#site-logo {
+  height: 2em;
+  width: auto;
+  position: relative;
+  top: 0.5em;
+  margin-right: 0.5em;
 }
 
 
 /* =Mobile Navigation Button
 -------------------------------------------------------------- */
 
-/* NOTE: Override the Mobile Navigation Button with caution.
- * The Helvetica stack produces a good icon. */
-
 a#nav-bttn:link,
 a#nav-bttn:visited {
-/*  color: #bf00bf;*/
-/*  background: #ffbfff;*/
-/*  font-family: "Helvetica Neue", Arial, Helvetica, serif;*/
+  color: #fff;
+  background: #99bf73;
 }
-
-a#nav-bttn:hover {
-/*  color: #ffbfff;*/
-/*  background: #fff;*/
-}
+a#nav-bttn:hover {}
 
 
 /* =Navigation Menu
 -------------------------------------------------------------- */
 
 .access {
-/*  border: 1em solid #994c99;*/
-/*  border-top: 0.5em solid #994c99;*/
-/*  background: #994c99;*/
+  border: 1em solid #ccff99;
+  border-top: 0.5em solid #ccff99;
+  background: #ccff99;
 }
-
 .access li {
-/*  border-bottom: 2px solid #994c99;*/
+  border-bottom: 2px solid #ccff99;
 }
-
 .access a:hover {
-/*  color: #ffbfff;*/
-/*  background: #fff;*/
+  background: #99bf73;
 }
-
 .access a:visited, .access a:active, .access a:link {
-/*  color: #ffbfff;*/
+  background: #99bf73;
 }
 
 
@@ -112,90 +102,50 @@ a#nav-bttn:hover {
 -------------------------------------------------------------- */
 
 a.add-place {
-/*  background-color: #ff40ff;*/
-/*  color: #eee;*/
-/*  text-shadow: none;*/
+/*  background-color: #ffcf40;*/
+  background-color: #ccff99;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
-
 a.add-place:hover {
-/*  background-color: #e500e5;*/
-/*  color: #fff;*/
+/*  background-color: #ffdf80;*/
+  color: #000;
 }
 
 
 /* =Close Content Button
 -------------------------------------------------------------- */
 
-/* NOTE: Override the Close Button font within the span. The link should
- * remain the Helvetica stack, as it produces a good X close icon. */
-
-a.close-bttn {
-/*  color: #ff40ff;*/
-/*  background-color: #fff;*/
-/*  border-color: #ffbfff;*/
-/*  font-family: "Helvetica Neue", Arial, Helvetica, serif;*/
-}
-
-a.close-bttn:hover {
-/*  color: #e500e5;*/
-/*  background-color: #fff;*/
-/*  border-color: #e500e5;*/
-}
-a.close-bttn span {
-  /*  font-family: Impact, sans-serif;*/
-}
+a.close-bttn {}
+a.close-bttn:hover {}
+a.close-bttn span {}
 
 
 /* =Forms
 -------------------------------------------------------------- */
 
 label {
-/*  color: #806080;*/
+  color: #000;
 }
 
 input[type=text],
 textarea {
-/*  border: 1px solid #000; */
+  border: 1px solid #8d8d8d; 
 }
 
-.required {
-/*  color: red;*/
-}
+.required {}
 
 .bttn {
-/*  color: #eee;*/
-/*  background-color: #ff40ff;*/
-/*  text-shadow: none;*/
+  color: #000;
+  background-color: #ffcf40;
+  text-shadow: none;
+  font-family: 'Orbitron', sans-serif;
+  padding-bottom: 0.5em;
+  text-transform: uppercase;
+  font-weight: 900;
 }
-
 .bttn:hover {
-/*  color: #fff;*/
-/*  background-color: #e500e5;*/
-}
-
-.fileinput-container {
-  background-color: #00aaff;
-  color: #f0f0f0;
-  padding: 0.75em 1em;
-  border: 0;
-  margin: 0 0 0.667em;
-  font-size: 1.1em;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  text-shadow: 1px -1px 0 #06A;
-     -moz-box-shadow: -4px 4px 0 rgba(85, 85, 85, 0.5);
-  -webkit-box-shadow: -4px 4px 0 rgba(85, 85, 85, 0.5);
-          box-shadow: -4px 4px 0 rgba(85, 85, 85, 0.5);
-}
-.fileinput-container.disabled {
-  background-color: #e0e0e0;
-  color: #f0f0f0;
-  text-shadow: 1px -1px 0 #999;
-     -moz-box-shadow: -4px 4px 0 rgba(85, 85, 85, 0.5);
-  -webkit-box-shadow: -4px 4px 0 rgba(85, 85, 85, 0.5);
-          box-shadow: -4px 4px 0 rgba(85, 85, 85, 0.5);
+  color: #000;
 }
 
 a.reply-link {
@@ -204,25 +154,34 @@ a.reply-link {
 }
 
 a.reply-link:hover {
-/*  color: #fff;*/
-/*  background-color: #e500e5;*/
+  color: #000;
+  background-color: #ffcf40;
 }
 
 
 /* =Voting & Social Promotion
 -------------------------------------------------------------- */
 .promotion {
-/*  background-color: #bf8fbf;*/
+  background-color: #d9d9d9;
 }
 
 #user_support label {
-/*  color: #ff80ff;*/
-/*  background-color: #fff;*/
+  color: #518021;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  background: #e5ffcc url(images/tick-no.png) 10px 10px no-repeat scroll;
 }
-
+#user_support input[type=checkbox]:checked ~ label {
+  background-image: url(images/tick.png);
+}
 #user_support:hover label,
 #user_support label:hover {
-/*  color: #e500e5;*/
+  color: #40661b;
+}
+.support-count {
+  padding: 0 0.25em;
+  color: #000;
 }
 
 
@@ -230,75 +189,40 @@ a.reply-link:hover {
 -------------------------------------------------------------- */
 
 #ticker {
-/*  background-color: #806080;*/
+  background-color: #e5ffcc;
 }
 
 ul.recent-points {
-/*  color: #eee;*/
+  color: #000;
 }
 
 .recent-points li {
-/*  border-bottom: 3px solid #664c66;*/
+  border-bottom: 1px solid #acbf99;
 }
-
 .recent-points li:hover {
-/*  background: #bf60bf;*/
+  background: #fff;
 }
 
 .recent-points a {
-/*  color: #eee;*/
+  color: #000;
 }
-
 .recent-points li:hover a,
 .recent-points a:hover {
-/*  color: #fff;*/
+  color: #000;
 }
 
-/* =Zendesk
--------------------------------------------------------------- */
-#zenbox_tab {
-  visibility: hidden;
-  top: 40% !important;
-  opacity: 0.7;
-}
 
 /* =Media Queries
 -------------------------------------------------------------- */
 
 @media only screen and (min-width: 768px) { /* menu is visible */
-  #zenbox_tab {
-    visibility: visible;
-  }
-
   .access {
-/*    border: 0;*/
-/*    background: transparent;*/
+    border: 0;
+    background: transparent;
   }
-
-  /* NOTE: The background-color is the X's color. The pseudo elements' border-color and
-   * inset shadow color should match to mask the X shape */
-  a.close-bttn {
-/*    background: white;*/
-/*    -webkit-box-shadow: 0 0 0 2px white, -4px 4px 0 2px rgba(85, 85, 85, 0.5), inset 0 0 0 0.25em pink;*/
-/*       -moz-box-shadow: 0 0 0 2px white, -4px 4px 0 2px rgba(85, 85, 85, 0.5), inset 0 0 0 0.25em pink;*/
-/*            box-shadow: 0 0 0 2px white, -4px 4px 0 2px rgba(85, 85, 85, 0.5), inset 0 0 0 0.25em pink;*/
+  .access li {
+    border-bottom: 0;
   }
-  a.close-bttn:hover {
-/*    background: purple; */
-  }
-  a.close-bttn:before {
-/*    border-right-color: pink; */
-  }
-  a.close-bttn:after {
-/*    border-left-color: pink; */
-  }
-  a.close-bttn span:before {
-/*    border-top-color: pink; */
-  }
-  a.close-bttn span:after {
-/*    border-bottom-color: pink; */
-  }
-
 }
 
 @media only screen and (min-width: 1024px) { /* ticker is visible */

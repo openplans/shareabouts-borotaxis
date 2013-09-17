@@ -19,7 +19,8 @@ map:
     minZoom: 10
     maxZoom: 17
   base_layer:
-    url: http://{s}.tiles.mapbox.com/v3/openplans.map-dmar86ym/{z}/{x}/{y}.png
+    # url: http://{s}.tiles.mapbox.com/v3/openplans.map-dmar86ym/{z}/{x}/{y}.png
+    url: http://b.tile.stamen.com/toner-lite/{z}/{x}/{y}.png
     attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
   layers: []
 
@@ -27,33 +28,36 @@ map:
 # The values map the place type to map icons (defined below).
 place_types:
   borotaxistand:
-    default: blue
-    focused: red
+    default: hailman-puck
+    focused: hailman-marker
     label: _(Boro Taxi Stand)
 
 # Defines place icons. See http://leaflet.cloudmade.com/reference.html#icon
 # for documention of each property. Any omitted property will be undefined.
 place_type_icons:
-  blue:
-    iconUrl: /static/css/images/feature-point.png
+  hailman-puck:
+    iconUrl: /static/css/images/hailman-puck-26x26.png
     iconSize:
-      width: 17
-      height: 18
+      width: 26
+      height: 26
     iconAnchor:
-      x: 9
-      y: 9
-  red:
-    iconUrl: /static/css/images/marker-focused.png
-    shadowUrl: /static/css/images/marker-shadow.png
+      x: 13
+      y: 13
+  hailman-marker:
+    iconUrl: /static/css/images/hailman-marker-27x44.png
+    shadowUrl: /static/css/images/marker-shadow-40x40.png
     iconSize:
-      width: 25
-      height: 41
+      width: 27
+      height: 44
+    iconAnchor:
+      x: 14
+      y: 44
     shadowSize:
-      width: 41
-      height: 41
-    iconAnchor:
-      x: 12
-      y: 41
+      width: 40
+      height: 40
+    shadowAnchor:
+      x: 7
+      y: 40
 
 activity:
   # Optional. Activity is supported by default. Set to false to disable.
@@ -65,7 +69,7 @@ place:
   adding_supported: true
   add_button_label: _(Suggest a Location)
   action_text: _(suggested)
-  title: _(Suggest a Boro Taxi stand location...)
+  title: _(Suggest a Location...)
   anonymous_name: _(Someone)
   submit_button_label: _(Submit)
   items:
