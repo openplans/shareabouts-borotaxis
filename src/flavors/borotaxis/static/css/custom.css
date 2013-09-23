@@ -10,6 +10,9 @@
 body, select, input, textarea {
   color: #000;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+}
 
 
 /* =Links
@@ -286,6 +289,7 @@ a.reply-link:hover {
   color: #ffcf40;
   display: block;
   font-size: 2.25em;
+  font-weight: 900;
 }
 
 
@@ -311,6 +315,7 @@ a.reply-link:hover {
   display: block;
   text-transform: uppercase;
   color: #bfbfbf;
+  font-size: 0.85em;
 }
 
 .place-items {
