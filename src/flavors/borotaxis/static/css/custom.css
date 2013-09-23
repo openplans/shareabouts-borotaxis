@@ -128,6 +128,56 @@ a.close-bttn span {}
 label {
   color: #000;
 }
+.place-form label {}
+#place-item-name:after,
+.survey-field-submitter_name:after {
+  content: "When would you use this?";
+  display: block;
+  font-weight: 900;
+  position: relative;
+  top: 1.2em;
+}
+.survey-field-submitter_name:after {
+  margin-bottom: 1.2em;
+}
+#place-item-early,
+.survey-field-early,
+#place-item-midday,
+.survey-field-midday,
+#place-item-evening,
+.survey-field-evening,
+#place-item-late,
+.survey-field-late {
+  display: inline;
+  margin-right: 1em;
+}
+#place-item-early label,
+.survey-field-early label,
+#place-item-midday label,
+.survey-field-midday label,
+#place-item-evening label,
+.survey-field-evening label,
+#place-item-late label,
+.survey-field-late label {
+  display: inline;
+  font-weight: normal;
+}
+#place-item-early input,
+.survey-widgets-early,
+#place-item-midday input,
+.survey-widgets-midday,
+#place-item-evening input,
+.survey-widgets-evening,
+#place-item-late input,
+.survey-widgets-late {
+  display: inline;
+  position: relative;
+  top: -0.25em;
+}
+
+#place-item-submitter_name {
+  margin-top: 1.2em;
+}
 
 input[type=text],
 textarea {
@@ -150,8 +200,8 @@ textarea {
 }
 
 a.reply-link {
-/*  color: #1e5395;*/
-/*  background: #eef8fd;*/
+  color: #fff;
+  background: #518021;
 }
 
 a.reply-link:hover {
@@ -236,6 +286,69 @@ a.reply-link:hover {
   color: #ffcf40;
   display: block;
   font-size: 2.25em;
+}
+
+
+/* =Place Detail & Surveys
+-------------------------------------------------------------- */
+
+.place-header {
+  margin-bottom: 0;
+}
+
+.place-submission-details {
+  display: block;
+  padding-left: 50px;
+  color: #7f7f7f;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  margin: 0 0 0 -50px;
+}
+.response-date {
+  display: block;
+  text-transform: uppercase;
+  color: #bfbfbf;
+}
+
+.place-items {
+  font-weight: 900;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #bfbfbf;
+}
+.place-item, .place-value,
+.response-item-early,
+.response-item-midday,
+.response-item-evening,
+.response-item-late {
+  display: inline;
+}
+.place-value,
+.response-value-early,
+.response-value-midday,
+.response-value-evening,
+.response-value-late {
+  background: #ddd;
+  padding: 0.25em 0.625em 0.25em 0.625em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+.response-value-early,
+.response-value-midday,
+.response-value-evening,
+.response-value-late {
+  display: inline; 
+}
+
+.response-header {
+  padding-left: 50px;
+  color: #7f7f7f;
+}
+.response-label-comment {
+  display: none;
 }
 
 

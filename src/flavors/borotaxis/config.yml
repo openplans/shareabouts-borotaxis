@@ -90,25 +90,25 @@ place:
       name: early
       attrs:
         - key: value
-          value: _(early)
+          value: _(Early Morning)
     - prompt: _(Midday)
       type: checkbox
       name: midday
       attrs:
         - key: value
-          value: _(midday)
+          value: _(Midday)
     - prompt: _(Evening)
       type: checkbox
       name: evening
       attrs:
         - key: value
-          value: _(evening)
+          value: _(Evening)
     - prompt: _(Late Night)
       type: checkbox
       name: late
       attrs:
         - key: value
-          value: _(late)
+          value: _(Late Night)
 
     - prompt: _(Your Name)
       type: text

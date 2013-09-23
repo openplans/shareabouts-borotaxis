@@ -1,0 +1,28 @@
+        {{> place-detail-promotion-bar }}
+
+        <header class="place-header clearfix">
+          <h1>{{ name }}</h1>
+          <span class="place-submission-details">
+
+            <!-- TODO: FIXME: pull in user's real avatars -->
+            <img src="/static/css/images/avatar.png" class="avatar">
+            {{#_}}suggested by <strong class="point-submitter">{{ submitter_name }}</strong>{{/_}}
+
+            <time datetime="{{ created_datetime }}" class="response-date">{{ pretty_created_datetime }}</time>.
+          </span>
+        </header>
+
+        <section class="place-items">
+          When I'd use this: 
+          {{# items }}
+          <!-- TODO: FIXME: only show these if the values exist. They don't collapse the way they're styled. -->
+          <div class="place-item place-item-{{ name }}">
+            <span class="place-label place-label-{{ name }}">{{ label }}</span>
+            <p class="place-value place-value-{{ name }}">{{ value }}</p>
+          </div>
+          {{/ items }}
+        </section>
+
+        {{#survey_config}}
+        <section class="survey"></section>
+        {{/survey_config}}

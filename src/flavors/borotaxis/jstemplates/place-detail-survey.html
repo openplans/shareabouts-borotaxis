@@ -1,0 +1,79 @@
+          {{#survey_config.show_responses}}
+          <h4 class="survey-header">
+            {{ responses.length }}
+            {{# has_single_response }}{{ survey_config.response_name }}{{/ has_single_response }}
+            {{^ has_single_response }}{{ survey_config.response_plural_name }}{{/ has_single_response }}
+          </h4>
+
+          <a href="#reply" class="reply-link">{{ survey_config.form_link_text }}</a>
+
+          <ol class="responses">
+            {{#responses}}
+            <li>
+              <article class="response">
+                <header class="response-header clearfix">
+                  <!-- TODO: FIXME: pull in user's real avatars -->
+                  <img src="/static/css/images/avatar.png" class="avatar">
+                  {{#_}}<strong class="response-submitter">
+                    {{ submitter_name }}
+                  </strong>
+                  <span class="response-date">
+                    around {{ pretty_created_datetime }}
+                  </span>
+                  {{/_}}
+                </header>
+
+                <div class="response-body">
+
+                  {{#items}}
+                  <!-- TODO: FIXME: only show these if the values exist. They don't collapse the way they're styled. -->
+                  <div class="response-item response-item-{{ name }}">
+                    <span class="response-label response-label-{{ name }}">{{ label }}</span>
+                    <p class="response-value response-value-{{ name }}">{{ value }}</p>
+                  </div>
+                  {{/items}}
+
+                </div>
+              </article>
+            </li>
+            {{/responses}}
+          </ol>
+          {{/survey_config.show_responses}}
+
+          <div id="reply">
+            <h4 class="reply-header">{{ title }}</h4>
+            <form id="new_response" class="new_response" action="#" method="post">
+              <input type="hidden" name="visible" value="on">
+
+              <fieldset>
+              {{#survey_config.items}}
+
+                <div class="survey-field survey-field-{{ name }}">
+                  <label class="survey-label survey-label-{{ name }}" for="survey-{{ name }}">
+                    {{#_}}{{ prompt }}{{# optional }} (optional){{/ optional }}{{/_}}
+                  </label>
+
+                  <div class="survey-widgets survey-widgets-{{ name }}">
+                    {{#is_input}}
+                    <input id="survey-{{ name }}" name="{{ name }}" type="{{ type }}" {{#attrs}} {{ key }}="{{ value }}"{{/attrs}}>
+
+                    {{/is_input}}
+                    {{#is_textarea}}
+                    <textarea id="survey-{{ name }}" name="{{ name }}"{{#attrs}} {{ key }}="{{ value }}"{{/attrs}}></textarea>
+                    {{/is_textarea}}
+                    {{#is_select}}
+                    <select id="survey-{{ name }}" name="{{ name }}" type="{{ type }}" {{#attrs}} {{ key }}="{{ value }}"{{/attrs}}>
+                      {{# options }}
+                        <option value="{{.}}">{{.}}</option>
+                      {{/ options }}
+                    </select>
+                    {{/is_select}}
+                  </div>
+                </div>
+
+              {{/survey_config.items}}
+              </fieldset>
+
+              <input name="commit" type="submit" value="{{ survey_config.submit_btn_text }}" class="bttn">
+            </form>
+          </div>
