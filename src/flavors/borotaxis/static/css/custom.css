@@ -32,7 +32,6 @@ a:hover {
 #site-header {
   color: #000;
   background-color: #ccff99;
-  overflow: hidden;
 }
 
 #site-header a, #site-header a:active, #site-header a:visited {
@@ -54,21 +53,29 @@ a:hover {
 #site-title {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
+  font-size: 1em;
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0.5em 0;
 }
 #site-title a:link,
 #site-title a:visited {
   text-shadow: none;
-  font-size: 0.5em;
+  font-size: 1em;
   color: #000;
+  display: block;
+  height: 100%;
 }
 #site-title a:hover {}
 
 #site-logo {
-  height: 2em;
+  height: 100%;
   width: auto;
-  position: relative;
-  top: 0.5em;
   margin-right: 0.5em;
+}
+#site-name {
+  display: none;
 }
 
 
@@ -388,6 +395,15 @@ ul.recent-points {
 -------------------------------------------------------------- */
 
 @media only screen and (min-width: 768px) { /* menu is visible */
+  #site-logo {
+    float: left;
+  }
+  #site-name {
+    display: inline;
+    font-size: 1.5em;
+    line-height: 2.5;
+    margin-right: 0.5em;
+  }
   .access {
     border: 0;
     background: transparent;
@@ -402,7 +418,15 @@ ul.recent-points {
 }
 
 @media only screen and (min-width: 1024px) { /* ticker is visible */
+  #site-name {
+    font-size: 1.75em;
+    line-height: 3;
+  }
 }
 
 @media only screen and (min-width: 1300px) {
+  #site-name {
+    font-size: 2em;
+    line-height: 3;
+  }
 }
