@@ -151,38 +151,44 @@ label {
   margin-bottom: 1.2em;
 }
 #place-item-early,
-.survey-field-early,
 #place-item-midday,
-.survey-field-midday,
 #place-item-evening,
-.survey-field-evening,
 #place-item-late,
+.survey-field-early,
+.survey-field-midday,
+.survey-field-evening,
 .survey-field-late {
   display: inline;
-  margin-right: 1em;
+  margin-right: 0.25em;
+  background: #ddd;
+  padding: 0.25em 0.25em 0.25em 0.625em;
+  text-transform: uppercase;
+  border-radius: 4px;
 }
 #place-item-early label,
-.survey-field-early label,
 #place-item-midday label,
-.survey-field-midday label,
 #place-item-evening label,
-.survey-field-evening label,
 #place-item-late label,
+.survey-field-early label,
+.survey-field-midday label,
+.survey-field-evening label,
 .survey-field-late label {
   display: inline;
-  font-weight: normal;
+  color: #555;
+  font-weight: 900;
+  font-size: 0.85em;
 }
 #place-item-early input,
-.survey-widgets-early,
 #place-item-midday input,
-.survey-widgets-midday,
 #place-item-evening input,
-.survey-widgets-evening,
 #place-item-late input,
+.survey-widgets-early,
+.survey-widgets-midday,
+.survey-widgets-evening,
 .survey-widgets-late {
   display: inline;
   position: relative;
-  top: -0.25em;
+  top: -0.325em;
 }
 
 #place-item-submitter_name {
@@ -304,7 +310,6 @@ a.reply-link:hover {
 -------------------------------------------------------------- */
 
 .place-header {
-  margin-bottom: 0;
 }
 
 .place-submission-details {
@@ -329,7 +334,7 @@ a.reply-link:hover {
   font-weight: 900;
   margin-bottom: 2em;
   padding-bottom: 2em;
-  border-bottom: 1px solid #bfbfbf;
+  border-bottom: 1px solid #ddd; 
 }
 .place-item, .place-value,
 .response-item-early,
@@ -344,9 +349,12 @@ a.reply-link:hover {
 .response-value-evening,
 .response-value-late {
   background: #ddd;
+  color: #555;
   padding: 0.25em 0.625em 0.25em 0.625em;
   text-transform: uppercase;
   border-radius: 4px;
+  font-weight: 900;
+  font-size: 0.85em;
 }
 .response-value-early,
 .response-value-midday,
@@ -355,12 +363,51 @@ a.reply-link:hover {
   display: inline; 
 }
 
+.survey-header {
+  border-bottom: 0;
+  margin: 0;
+  padding: 0 0 1.5em 0;
+}
+
+.responses .response {
+  position: relative;
+  padding-bottom: 40px;
+  margin-bottom: 1em;
+}
 .response-header {
   padding-left: 50px;
+  margin: 0 0 0 1em;
   color: #7f7f7f;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.response-body {
+  margin: 0 0 1em;
+  padding: 1em;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ddd;
+  border-bottom: 0;
+  border-left: 1px solid #ddd;
+  background: #eee;
+  border-radius: 1em;
+  position: relative;
+}
+.balloon-tail {
+  height: 0;
+  width: 0;
+  border: 1em solid transparent;
+  border-top-color: #eee;
+  position: absolute;
+  top: 100%;
+  left: 20px;
 }
 .response-label-comment {
   display: none;
+}
+.response-value-comment {
+  font-size: 1.15em;
+  margin-bottom: 0.5em !important;
 }
 
 

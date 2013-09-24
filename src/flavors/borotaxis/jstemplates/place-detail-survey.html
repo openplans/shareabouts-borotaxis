@@ -11,6 +11,7 @@
             {{#responses}}
             <li>
               <article class="response">
+
                 <header class="response-header clearfix">
                   <!-- TODO: FIXME: pull in user's real avatars -->
                   <img src="/static/css/images/avatar.png" class="avatar">
@@ -24,7 +25,6 @@
                 </header>
 
                 <div class="response-body">
-
                   {{#items}}
                     {{#if value}}
                     <div class="response-item response-item-{{ name }}">
@@ -32,8 +32,9 @@
                     </div>
                     {{/if}}
                   {{/items}}
-
+                  <div class="balloon-tail"></div>
                 </div>
+
               </article>
             </li>
             {{/responses}}
