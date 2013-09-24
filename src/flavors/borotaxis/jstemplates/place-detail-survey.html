@@ -26,11 +26,11 @@
                 <div class="response-body">
 
                   {{#items}}
-                  <!-- TODO: FIXME: only show these if the values exist. They don't collapse the way they're styled. -->
-                  <div class="response-item response-item-{{ name }}">
-                    <span class="response-label response-label-{{ name }}">{{ label }}</span>
-                    <p class="response-value response-value-{{ name }}">{{ value }}</p>
-                  </div>
+                    {{#if value}}
+                    <div class="response-item response-item-{{ name }}">
+                      <p class="response-value response-value-{{ name }}">{{ value }}</p>
+                    </div>
+                    {{/if}}
                   {{/items}}
 
                 </div>
@@ -50,17 +50,18 @@
 
                 <div class="survey-field survey-field-{{ name }}">
                   <label class="survey-label survey-label-{{ name }}" for="survey-{{ name }}">
-                    {{#_}}{{ prompt }}{{# optional }} (optional){{/ optional }}{{/_}}
+                    {{#_}}{{ prompt }}{{#if optional }} (optional){{/if }}{{/_}}
                   </label>
 
                   <div class="survey-widgets survey-widgets-{{ name }}">
                     {{#is_input}}
                     <input id="survey-{{ name }}" name="{{ name }}" type="{{ type }}" {{#attrs}} {{ key }}="{{ value }}"{{/attrs}}>
-
                     {{/is_input}}
+
                     {{#is_textarea}}
                     <textarea id="survey-{{ name }}" name="{{ name }}"{{#attrs}} {{ key }}="{{ value }}"{{/attrs}}></textarea>
                     {{/is_textarea}}
+
                     {{#is_select}}
                     <select id="survey-{{ name }}" name="{{ name }}" type="{{ type }}" {{#attrs}} {{ key }}="{{ value }}"{{/attrs}}>
                       {{# options }}

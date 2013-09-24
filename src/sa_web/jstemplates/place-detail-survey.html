@@ -61,7 +61,11 @@
                     {{#is_select}}
                     <select id="survey-{{ name }}" name="{{ name }}" type="{{ type }}" {{#attrs}} {{ key }}="{{ value }}"{{/attrs}}>
                       {{# options }}
+                        {{#if label}}
+                        <option value="{{value}}">{{label}}</option>
+                        {{else}}
                         <option value="{{.}}">{{.}}</option>
+                        {{/if}}
                       {{/ options }}
                     </select>
                     {{/is_select}}
