@@ -22,8 +22,11 @@ map:
     # url: http://{s}.tiles.mapbox.com/v3/openplans.map-dmar86ym/{z}/{x}/{y}.png
     url: http://b.tile.stamen.com/toner-lite/{z}/{x}/{y}.png
     attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
-  layers: []
-
+  layers:
+    - id: 'boundaries'
+      url: 'http://{s}.tiles.mapbox.com/v3/openplans.TLC/{z}/{x}/{y}.png'
+      type: tiles
+  
 # The keys show up in the dropdown list when you are adding a new place
 # The values map the place type to map icons (defined below).
 place_types:
@@ -110,13 +113,30 @@ place:
         - key: value
           value: _(Late Night)
 
-    - prompt: _(Your Name)
+    - prompt: _(Your name (optional))
       type: text
       name: submitter_name
-      optional: true
       attrs:
         - key: placeholder
           value: _(Name)
+        - key: size
+          value: 30
+
+    - prompt: _(Your email (optional, won't be shown on the map))
+      type: text
+      name: private-email
+      attrs:
+        - key: placeholder
+          value: _(Leave an email to stay informed about Boro Taxis)
+        - key: size
+          value: 30
+
+    - prompt: _(Your home zip code (optional, won't be shown on the map))
+      type: text
+      name: private-zip
+      attrs:
+        - key: placeholder
+          value: _(Zip)
         - key: size
           value: 30
 

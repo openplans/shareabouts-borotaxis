@@ -437,6 +437,10 @@ ul.recent-points {
   color: #000;
 }
 
+.place-name {
+  font-style: italic;
+}
+
 
 /* =Media Queries
 -------------------------------------------------------------- */
