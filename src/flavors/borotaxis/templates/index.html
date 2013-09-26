@@ -79,6 +79,8 @@
       </nav>
     </div> <!-- .language-picker -->
     {% endif %}
+
+    <div id="auth-nav-container"></div>
   </header>
 
   <div class="unsupported-overlay"></div>
@@ -165,10 +167,16 @@
         })
       }
     });
+
+    Shareabouts.bootstrapped = {
+      staticUrl: '{{ STATIC_URL }}',
+      currentUser: {{ current_user_json|safe }}
+    };
   </script>
 
   <script src="{{STATIC_URL}}js/models.js"></script>
   <script src="{{STATIC_URL}}js/views/pages-nav-view.js"></script>
+  <script src="{{STATIC_URL}}js/views/auth-nav-view.js"></script>
   <script src="{{STATIC_URL}}js/views/activity-view.js"></script>
   <script src="{{STATIC_URL}}js/views/app-view.js"></script>
   <script src="{{STATIC_URL}}js/views/layer-view.js"></script>

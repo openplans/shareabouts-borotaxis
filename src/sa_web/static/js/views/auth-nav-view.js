@@ -10,7 +10,7 @@ var Shareabouts = Shareabouts || {};
     },
 
     render: function() {
-      var data = S.bootstrapped.currentUser,
+      var data = S.bootstrapped.currentUser || {},
           template = Handlebars.templates['auth-nav'](data);
       this.$el.html(template);
 
