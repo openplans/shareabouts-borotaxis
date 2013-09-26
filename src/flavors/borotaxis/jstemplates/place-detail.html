@@ -14,13 +14,31 @@
 
         <section class="place-items">
           When I'd use this:
-          {{# items }}
-            {{#if value}}
-            <div class="place-item place-item-{{ name }}">
-              <p class="place-value place-value-{{ name }}">{{ value }}</p>
-            </div>
-            {{/if}}
-          {{/ items }}
+          
+          {{#early}}
+           <div class="place-item place-item-{{ early }}">
+             <p class="place-value place-value-{{ early }}">Early Morning</p>
+           </div>
+          {{/early}}
+          
+          {{# midday }}
+           <div class="place-item place-item-{{ midday }}">
+             <p class="place-value place-value-{{ midday }}">Midday</p>
+           </div>
+           {{/ midday}}
+           
+           {{# evening }}
+           <div class="place-item place-item-{{ evening }}">
+             <p class="place-value place-value-{{ evening }}">Evening</p>
+           </div>
+           {{/ evening }}
+           
+           {{# late }}
+           <div class="place-item place-item-{{ late }}">
+             <p class="place-value place-value-{{ late }}">Late Night</p>
+           </div>
+           {{/ late}}
+
         </section>
 
         {{#if survey_config}}
