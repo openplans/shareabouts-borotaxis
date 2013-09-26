@@ -169,11 +169,16 @@
     });
 
     Shareabouts.bootstrapped = {
-      staticUrl: '{{ STATIC_URL }}',
-      currentUser: {{ current_user_json|safe }}
+      staticUrl: '{{ STATIC_URL }}'
     };
-  </script>
 
+    function bootstrapCurrentUser(data) {
+      Shareabouts.bootstrapped.currentUser = data;
+    }
+  </script>
+  <script src="{{AUTH_ROOT}}current?format=jsonp&callback=bootstrapCurrentUser" type="text/javascript"></script>
+
+  <script src="{{STATIC_URL}}js/handlebars-helpers.js"></script>
   <script src="{{STATIC_URL}}js/models.js"></script>
   <script src="{{STATIC_URL}}js/views/pages-nav-view.js"></script>
   <script src="{{STATIC_URL}}js/views/auth-nav-view.js"></script>
