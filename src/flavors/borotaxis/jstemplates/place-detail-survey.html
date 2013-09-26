@@ -14,9 +14,13 @@
 
                 <header class="response-header clearfix">
                   <!-- TODO: FIXME: pull in user's real avatars -->
-                  <img src="/static/css/images/avatar.png" class="avatar">
                   {{#_}}<strong class="response-submitter">
-                    {{ submitter_name }}
+                    {{#if submitter}}
+                      <img src="{{ submitter.avatar_url }}" class="avatar" /> {{ submitter.name }}
+                    {{^}}
+                      <!-- TODO: FIXME: don't hardcode image URL -->
+                      <img src="/static/css/images/avatar.png" class="avatar" /> {{ submitter_name }}
+                    {{/if}}
                   </strong>
                   <span class="response-date">
                     around {{ pretty_created_datetime }}

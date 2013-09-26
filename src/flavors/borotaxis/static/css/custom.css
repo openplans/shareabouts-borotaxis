@@ -313,16 +313,16 @@ a.reply-link:hover {
 }
 
 .place-submission-details {
-  display: block;
-  padding-left: 50px;
   color: #7f7f7f;
+  padding-left: 3.75em;
+}
+.point-submitter .avatar {
+  width: 3.25em;
+  height: 3.25em;
+  float: left;
+  margin-left: -3.75em;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
-  margin: 0 0 0 -50px;
-}
 .response-date {
   display: block;
   text-transform: uppercase;
@@ -375,12 +375,18 @@ a.reply-link:hover {
   margin-bottom: 1em;
 }
 .response-header {
-  padding-left: 50px;
+  padding-left: 3.75em;
   margin: 0 0 0 1em;
   color: #7f7f7f;
   position: absolute;
   bottom: 0;
   left: 0;
+}
+.response-submitter .avatar {
+  width: 3.25em;
+  height: 3.25em;
+  float: left;
+  margin-left: -3.75em;
 }
 .response-body {
   margin: 0 0 1em;

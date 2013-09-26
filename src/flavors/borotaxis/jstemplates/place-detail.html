@@ -4,9 +4,13 @@
           <h1>{{ name }}</h1>
           <span class="place-submission-details">
 
-            <!-- TODO: FIXME: pull in user's real avatars -->
-            <img src="/static/css/images/avatar.png" class="avatar">
-            {{#_}}suggested by <strong class="point-submitter">{{ submitter_name }}</strong>{{/_}}
+            {{#_}}suggested by <strong class="point-submitter">
+              {{#if submitter}}
+                <img src="{{ submitter.avatar_url }}" class="avatar" /> {{ submitter.name }}
+              {{^}}
+                <!-- TODO: FIXME: don't hardcode image URL -->
+                <img src="/static/css/images/avatar.png" class="avatar" /> {{ submitter_name }}
+              {{/if}}</strong>{{/_}}
 
             <time datetime="{{ created_datetime }}" class="response-date">{{ pretty_created_datetime }}</time>
           </span>
