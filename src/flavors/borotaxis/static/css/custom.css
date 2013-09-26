@@ -35,11 +35,11 @@ a:hover {
 }
 
 #site-header a, #site-header a:active, #site-header a:visited {
-  color: #fff;
+  color: #518021;
 }
 
 #site-header a:hover {
-   color: #fff; 
+  color: #40661b;
 }
 
 
@@ -84,28 +84,94 @@ a:hover {
 
 a#nav-bttn:link,
 a#nav-bttn:visited {
-  color: #fff;
-  background: #99bf73;
+  display: none !important;
 }
-a#nav-bttn:hover {}
 
 
-/* =Navigation Menu
+/* =Pages Menu
 -------------------------------------------------------------- */
 
 .access {
-  border: 1em solid #ccff99;
-  border-top: 0.5em solid #ccff99;
-  background: #ccff99;
+  display: block;
+  width: auto;
+  margin: 0.5em 0 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  float: left;
+  position: relative;
+  z-index: 50;
+  font-size: 1.25em;
 }
 .access li {
-  border-bottom: 2px solid #ccff99;
+  position: relative;
+  border-bottom: 0;
+  font-size: 1em;
+}
+.access a:link,
+.access a:visited {
+  float: left;
+  line-height: 2.5em;
+  padding: 0 0.5em;
+  text-decoration: none;
+  background: transparent;
+  color: #518021 !important;
 }
 .access a:hover {
-  background: #99bf73;
+  background: transparent;
+  color: #40661b !important;
 }
-.access a:visited, .access a:active, .access a:link {
-  background: #99bf73;
+
+
+/* =User Menu
+-------------------------------------------------------------- */
+
+.user-menu {
+  float: right;
+  font-size: 1em;
+  margin: 1em -0.5em 0 0;
+  text-align: right;
+}
+.header-avatar {
+  float: right;
+  height: 3em;
+  width: 3em;
+  margin: -0.5em 0 0 0.5em;
+}
+.current-user {
+  white-space: nowrap;
+}
+a.logout-btn {
+  display: block;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.sign-in-prompt {
+  display: block;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  margin: -0.5em 0 0.25em;
+  text-align: center;
+}
+.sign-in-menu-item {
+  float: left;
+  font-weight: bold;
+  margin-left: 0.5em;
+}
+.auth {
+  text-decoration: none;
+  display: block;
+  padding: 0.25em 0.5em;
+}
+a.twitter-btn {
+  background-color: #4099FF;
+  color: #fff !important;
+}
+a.facebook-btn {
+  background-color: #3b5998;
+  color: #fff !important;
 }
 
 
@@ -462,11 +528,7 @@ ul.recent-points {
     margin-right: 0.5em;
   }
   .access {
-    border: 0;
-    background: transparent;
-  }
-  .access li {
-    border-bottom: 0;
+    margin-top: 0.75em;
   }
   .promotion {
     margin-top: 0;
@@ -479,11 +541,39 @@ ul.recent-points {
     font-size: 1.75em;
     line-height: 3;
   }
+  .access {
+    margin-top: 1.25em;
+  }
+  .user-menu {
+    margin-top: 1.25em;
+  }
+  .header-avatar {
+    float: right;
+    height: 4em;
+    width: 4em;
+    margin-top: -0.75em;
+  }
+  .current-user {
+    font-size: 1.25em;
+  }
+  a.logout-btn {
+    margin-top: 0.25em;
+  }
+  .sign-in-prompt,
+  .sign-in-menu {
+    margin-right: 1em;
+  }
 }
 
 @media only screen and (min-width: 1300px) {
   #site-name {
     font-size: 2em;
     line-height: 3;
+  }
+  .access {
+    margin-top: 1.5em;
+  }
+  .user-menu {
+    margin-top: 2em;
   }
 }
