@@ -73,6 +73,7 @@ place:
   add_button_label: _(Suggest a Location)
   action_text: _(suggested)
   title: _(Suggest a Location...)
+  help_text: _(Drag the map to the location you want to indicate. Don't suggest a stand in the yellow cab area, shown in yellow.)
   anonymous_name: _(Someone)
   submit_button_label: _(Submit)
   items:
