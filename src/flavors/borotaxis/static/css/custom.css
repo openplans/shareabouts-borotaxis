@@ -224,10 +224,10 @@ label {
 .survey-field-midday,
 .survey-field-evening,
 .survey-field-late {
-  display: inline;
-  margin-right: 0.25em;
+  float: left;
+  margin: 0 0.25em 0.25em 0 !important;
   background: #ddd;
-  padding: 0.25em 0.25em 0.25em 0.625em;
+  padding: 0.25em 0.5em 0.25em 0.5em;
   text-transform: uppercase;
   border-radius: 4px;
 }
@@ -243,6 +243,7 @@ label {
   color: #555;
   font-weight: 900;
   font-size: 0.85em;
+  white-space: nowrap;
 }
 #place-item-early input,
 #place-item-midday input,
@@ -258,7 +259,8 @@ label {
 }
 
 #place-item-submitter_name {
-  margin-top: 1.2em;
+  clear: left;
+  padding-top: 1.2em;
 }
 
 input[type=text],
@@ -421,6 +423,7 @@ a.reply-link:hover {
   border-radius: 4px;
   font-weight: 900;
   font-size: 0.85em;
+  white-space: nowrap;
 }
 .response-value-early,
 .response-value-midday,
