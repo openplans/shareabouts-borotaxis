@@ -377,6 +377,24 @@ a.reply-link:hover {
 /* =Place Detail & Surveys
 -------------------------------------------------------------- */
 
+.submission-confirmation {
+  background-color: #e5ffcc;
+  padding: 1em ;
+  margin: -1em 0 1em;
+}
+.submission-confirmation p {
+  margin-bottom: 0 !important;
+  font-size: 0.85em;
+}
+.submission-confirmation strong {
+  display: block;
+  font-size: 1.5em;
+}
+.submission-confirmation + .promotion {
+  margin-top: 0;
+  
+}
+
 .place-header {
 }
 
@@ -537,6 +555,9 @@ ul.recent-points {
     margin-top: 0;
     border: 0;
   }
+  .submission-confirmation {
+    margin: -1.5em -1em 1em -1em;
+  }
 }
 
 @media only screen and (min-width: 1024px) { /* ticker is visible */
@@ -565,6 +586,10 @@ ul.recent-points {
   .sign-in-prompt,
   .sign-in-menu {
     margin-right: 1em;
+  }
+  .submission-confirmation {
+    margin: -2em -2em 1em -2em;
+    margin-bottom: 2em;
   }
 }
 
