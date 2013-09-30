@@ -73,7 +73,7 @@ place:
   add_button_label: _(Suggest a Location)
   action_text: _(suggested)
   title: _(Suggest a Location...)
-  help_text: _(Drag the map to the location you want to indicate. Don't suggest a stand in the yellow cab area, shown in yellow.)
+  help_text: _(Drag the map to the location you want to indicate. And remember, Boro Taxis can't make street hail pickups at the airports or in Manhattan below East 96th Street or West 110th Street, so don’t suggest locations in those areas.)
   anonymous_name: _(Someone)
   submit_button_label: _(Submit)
   items:
