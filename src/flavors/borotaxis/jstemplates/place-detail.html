@@ -1,6 +1,11 @@
         {{> place-detail-promotion-bar }}
 
         <header class="place-header clearfix">
+          
+          {{#private-submitted}}
+            <div class='submission-confirmation'><p>Thanks for sharing your suggestion! Visit the <a href="http://www.nyc.gov/html/tlc/html/home/home.shtml" title="NYC Taxi & Limousine Commission">NYC Taxi and Limousine Commission website</a> for more information about the Boro Taxi program.</p></div>
+          {{/private-submitted}}
+          
           <h1>{{ name }}</h1>
           <span class="place-submission-details">
 
