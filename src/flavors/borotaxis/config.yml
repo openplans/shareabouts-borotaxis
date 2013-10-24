@@ -19,7 +19,7 @@ map:
     minZoom: 12
     maxZoom: 17
   layers:
-    - url: http://b.tile.stamen.com/toner-lite/{z}/{x}/{y}.png
+    - url: http://a.tiles.mapbox.com/v3/openplans.map-csmz5s4v/{z}/{x}/{y}.png
       attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
 
 # The keys show up in the dropdown list when you are adding a new place
