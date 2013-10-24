@@ -1,8 +1,23 @@
-/*globals _ jQuery L Backbone ich */
+/*globals _ jQuery L Backbone Handlebars */
 
 var Shareabouts = Shareabouts || {};
 
 (function(S, $, console){
+  // Spinner options
+  S.bigSpinnerOptions = {
+    lines: 13, length: 0, width: 10, radius: 30, corners: 1, rotate: 0,
+    direction: 1, color: '#000', speed: 1, trail: 60, shadow: false,
+    hwaccel: false, className: 'spinner', zIndex: 2e9, top: 'auto',
+    left: 'auto'
+  };
+
+  S.smallSpinnerOptions = {
+    lines: 13, length: 0, width: 3, radius: 10, corners: 1, rotate: 0,
+    direction: 1, color: '#000', speed: 1, trail: 60, shadow: false,
+    hwaccel: false, className: 'spinner', zIndex: 2e9, top: 'auto',
+    left: 'auto'
+  };
+
   S.AppView = Backbone.View.extend({
     events: {
       'click #add-place': 'onClickAddPlaceBtn',
@@ -20,6 +35,8 @@ var Shareabouts = Shareabouts || {};
       $('body').ajaxSuccess(function(evt, request, settings){
         $('#ajax-error-msg').hide();
       });
+
+      $('#powered-by').addClass('is-loaded');
 
       // Handle collection events
       this.collection.on('add', this.onAddPlace, this);
@@ -206,12 +223,13 @@ var Shareabouts = Shareabouts || {};
     },
     viewPlace: function(model) {
       var map = this.mapView.map,
-          point, placeDetailView;
+          layer, center, placeDetailView;
 
       if (model) {
         // Called by the router
-        point = model.get('geometry');
+        layer = this.mapView.layerViews[model.cid].layer;
         placeDetailView = this.getPlaceDetailView(model);
+        center = layer.getLatLng ? layer.getLatLng() : layer.getBounds().getCenter();
 
         this.$panel.removeClass().addClass('place-detail place-detail-' + model.id);
         this.showPanel(placeDetailView.render().$el);
@@ -221,7 +239,7 @@ var Shareabouts = Shareabouts || {};
         this.hideAddButton();
         this.hideInstructions(true);
 
-        map.panTo(this.getOffsetCenter(L.latLng(point.coordinates[1], point.coordinates[0])));
+        map.panTo(this.getOffsetCenter(center));
 
         // Focus the one we're looking
         model.trigger('focus');
@@ -231,11 +249,13 @@ var Shareabouts = Shareabouts || {};
     },
     viewPage: function(slug) {
       var pageConfig = _.find(this.options.pagesConfig, function(pageConfig) {
-        return pageConfig.slug ===  slug;
-      });
+            return pageConfig.slug ===  slug;
+          }),
+          pageTemplateName = 'pages/' + (pageConfig.name || pageConfig.slug),
+          pageHtml = Handlebars.templates[pageTemplateName]({config: this.options.config});
 
       this.$panel.removeClass().addClass('page page-' + slug);
-      this.showPanel(Handlebars.templates['pages/' + (pageConfig.name || pageConfig.slug)]);
+      this.showPanel(pageHtml);
 
       this.hideNewPin();
       this.destroyNewModels();
@@ -249,6 +269,7 @@ var Shareabouts = Shareabouts || {};
       this.$panelContent.html(markup);
       this.$panel.show();
 
+      this.$panelContent.scrollTop(0);
       $(S).trigger('panelshow', [this.options.router, Backbone.history.getFragment()]);
     },
     showNewPin: function() {

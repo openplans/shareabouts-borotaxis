@@ -21,6 +21,9 @@ var Shareabouts = Shareabouts || {};
         el: 'body',
         collection: this.collection,
         activities: this.activities,
+
+        config: options.config,
+
         defaultPlaceTypeName: options.defaultPlaceTypeName,
         placeTypes: options.placeTypes,
         surveyConfig: options.surveyConfig,
@@ -57,7 +60,7 @@ var Shareabouts = Shareabouts || {};
         });
 
         if (startPageConfig && startPageConfig.slug) {
-          this.navigate('page/' + startPageConfig.slug);
+          this.navigate('page/' + startPageConfig.slug, {trigger: true});
         }
       }
     },
