@@ -13,7 +13,9 @@ var Shareabouts = Shareabouts || {};
     },
 
     initialize: function(options) {
-      var startPageConfig;
+      var self = this,
+          startPageConfig,
+          placeParams = {};
 
       this.collection = new S.PlaceCollection([]);
       this.activities = new S.ActionCollection(options.activity);
@@ -36,14 +38,32 @@ var Shareabouts = Shareabouts || {};
         router: this
       });
 
-      // Call reset after the views are created, since they're all going to
-      // be listening to reset.
-      this.collection.reset(options.places, {
-        parse: true
+      // Use the page size as dictated by the server by default, unless
+      // directed to do otherwise in the configuration.
+      if (options.config.app.places_page_size) {
+        placeParams['page_size'] = options.config.app.places_page_size;
+      }
+
+      // Fetch all places by page
+      this.collection.fetch({
+        data: placeParams,
+        success: function(collection, data) {
+          var pageSize = data.features.length,
+              totalPages = Math.ceil(data.metadata.length / pageSize),
+              i;
+
+          if (data.metadata.next) {
+            for (i=2; i <= totalPages; i++) {
+              self.collection.fetch({
+                remove: false,
+                data: _.extend(placeParams, { page: i })
+              });
+            }
+          }
+        }
       });
-      this.activities.fetch({
-        reset: true
-      });
+
+      this.activities.fetch({reset: true});
 
       // Start tracking the history
       var historyOptions = {pushState: true};
