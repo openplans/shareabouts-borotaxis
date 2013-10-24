@@ -126,12 +126,7 @@ a#nav-bttn:visited {
 /* =User Menu
 -------------------------------------------------------------- */
 
-.user-menu {
-  float: right;
-  font-size: 1em;
-  margin: 1em -0.5em 0 0;
-  text-align: right;
-}
+.user-menu {}
 .header-avatar {
   float: right;
   height: 3em;
@@ -569,7 +564,7 @@ ul.recent-points {
     margin-top: 1.25em;
   }
   .user-menu {
-    margin-top: 1.25em;
+    margin-top: 0.5em;
   }
   .header-avatar {
     float: right;
@@ -602,6 +597,6 @@ ul.recent-points {
     margin-top: 1.5em;
   }
   .user-menu {
-    margin-top: 2em;
+    margin-top: 0;
   }
 }
