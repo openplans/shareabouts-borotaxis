@@ -222,29 +222,62 @@ var Shareabouts = Shareabouts || {};
       this.collection.add({});
     },
     viewPlace: function(model) {
-      var map = this.mapView.map,
-          layer, center, placeDetailView;
+      var self = this,
+          onPlaceFound, onPlaceNotFound, modelId;
 
-      if (model) {
-        // Called by the router
-        layer = this.mapView.layerViews[model.cid].layer;
-        placeDetailView = this.getPlaceDetailView(model);
+      onPlaceFound = function(model) {
+        var map = self.mapView.map,
+            layer, center, placeDetailView;
+
+        // If this model is a duplicate of one that already exists in the
+        // places collection, it may not correspond to a layerView. For this
+        // case, get the model that's actually in the places collection.
+        if (_.isUndefined(self.mapView.layerViews[model.cid])) {
+          model = self.places.get(model.id);
+        }
+
+        layer = self.mapView.layerViews[model.cid].layer;
+        placeDetailView = self.getPlaceDetailView(model);
         center = layer.getLatLng ? layer.getLatLng() : layer.getBounds().getCenter();
 
-        this.$panel.removeClass().addClass('place-detail place-detail-' + model.id);
-        this.showPanel(placeDetailView.render().$el);
-        this.hideNewPin();
-        this.destroyNewModels();
-        this.hideCenterPoint();
-        this.hideAddButton();
-        this.hideInstructions(true);
+        self.$panel.removeClass().addClass('place-detail place-detail-' + model.id);
+        self.showPanel(placeDetailView.render().$el);
+        self.hideNewPin();
+        self.destroyNewModels();
+        self.hideCenterPoint();
+        self.hideAddButton();
+        self.hideInstructions(true);
 
-        map.panTo(this.getOffsetCenter(center));
+        map.panTo(self.getOffsetCenter(center));
 
         // Focus the one we're looking
         model.trigger('focus');
+      };
+
+      onPlaceNotFound = function() {
+        self.options.router.navigate('/');
+      };
+
+      // If we get a PlaceModel then show it immediately.
+      if (model instanceof S.PlaceModel) {
+        onPlaceFound(model);
+        return;
+      }
+
+      // Otherwise, assume we have a model ID.
+      modelId = model;
+      model = this.places.get(modelId);
+
+      // If the model was found in the places, go ahead and use it.
+      if (model) {
+        onPlaceFound(model);
+
+      // Otherwise, fetch and use the result.
       } else {
-        this.options.router.navigate('/');
+        this.places.fetchById(modelId, {
+          success: onPlaceFound,
+          error: onPlaceNotFound
+        });
       }
     },
     viewPage: function(slug) {
