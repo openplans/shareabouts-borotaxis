@@ -62,7 +62,7 @@ a:hover {
 #site-title a:link,
 #site-title a:visited {
   text-shadow: none;
-  font-size: 1em;
+  font-size: 1em !important;
   color: #000;
   display: block;
   height: 100%;
