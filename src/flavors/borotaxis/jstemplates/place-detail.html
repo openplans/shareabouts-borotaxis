@@ -1,6 +1,8 @@
-  {{#private-submitted}}
-    <div class='submission-confirmation'><p><strong>Thanks for sharing your suggestion!</strong> Visit the <a href="http://www.nyc.gov/html/tlc/html/home/home.shtml" title="NYC Taxi & Limousine Commission">NYC Taxi and Limousine Commission website</a> for more information about the Boro Taxi program.</p></div>
-  {{/private-submitted}}
+        <a href="#" class="close-bttn">&#10005;<span>Close</span></a>
+
+        {{#private-submitted}}
+        <div class='submission-confirmation'><p><strong>Thanks for sharing your suggestion!</strong> Visit the <a href="http://www.nyc.gov/html/tlc/html/home/home.shtml" title="NYC Taxi & Limousine Commission">NYC Taxi and Limousine Commission website</a> for more information about the Boro Taxi program.</p></div>
+        {{/private-submitted}}
 
         {{> place-detail-promotion-bar }}
 
@@ -53,3 +55,6 @@
         {{#if survey_config}}
         <section class="survey"></section>
         {{/if}}
+
+        <div style="clear:both; padding:1em 0;"></div>
+        <a href="#" class="close-bttn">&#10005;<span>Close</span></a>
