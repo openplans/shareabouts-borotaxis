@@ -188,9 +188,29 @@ a.add-place:hover {
 /* =Close Content Button
 -------------------------------------------------------------- */
 
-a.close-bttn {}
-a.close-bttn:hover {}
-a.close-bttn span {}
+a.close-bttn {
+  color: #ff5e99;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: -0.75em 0 0 -0.625em;
+  padding: 0.75em;
+  line-height: 2;
+  display: inline-block;
+  z-index: 2;
+}
+a.close-bttn:hover {
+  color: #dd3c77;
+}
+a.close-bttn span {
+  font-size: 85%;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-left: 0.375em;
+}
 
 
 /* =Forms
@@ -295,7 +315,7 @@ a.reply-link:hover {
 .promotion {
   background: #fff;
   float: right;
-  margin: -42px 0 0.75em 0.75em;
+  margin: 0 0 0.75em 0.75em;
   padding: 42px 0 0;
   position: relative;
 }
@@ -375,7 +395,7 @@ a.reply-link:hover {
 .submission-confirmation {
   background-color: #e5ffcc;
   padding: 1em ;
-  margin: -1em 0 1em;
+  margin: 0 0 1em;
 }
 .submission-confirmation p {
   margin-bottom: 0 !important;
@@ -384,10 +404,6 @@ a.reply-link:hover {
 .submission-confirmation strong {
   display: block;
   font-size: 1.5em;
-}
-.submission-confirmation + .promotion {
-  margin-top: 0;
-  
 }
 
 .place-header {
@@ -547,11 +563,35 @@ ul.recent-points {
     margin-top: 0.75em;
   }
   .promotion {
-    margin-top: 0;
     border: 0;
   }
-  .submission-confirmation {
-    margin: -1.5em -1em 1em -1em;
+
+  a.close-bttn {
+    text-indent: 0 !important;
+    float: none !important;
+    height: auto !important;
+    width: auto !important;
+    position: relative !important;
+    z-index: 5;
+    top: 0 !important;
+    right: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+    line-height: 1.25;
+    overflow: hidden;
+    box-shadow: none;
+  }
+  a.close-bttn:before,
+  a.close-bttn:after {
+    display: none !important;
+  }
+  a.close-bttn:hover:before, a.close-bttn:hover:after {}
+  a.close-bttn {
+    -webkit-transform:rotate(0deg); /* Safari and Chrome */
+       -moz-transform:rotate(0deg); /* Firefox */
+        -ms-transform:rotate(0deg); /* IE 9 */
+         -o-transform:rotate(0deg); /* Opera */
+           transform: rotate(0deg);
   }
 }
 
