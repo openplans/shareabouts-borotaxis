@@ -383,6 +383,7 @@ a.reply-link:hover {
   -ms-filter: "alpha(opacity=0)";
   zoom: 1;
 }
+#user_support:hover label,
 #user_support input[type=checkbox]:checked ~ label {
   background-image: url(images/tick-large.png);
 }
