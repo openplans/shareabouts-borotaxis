@@ -622,10 +622,6 @@ ul.recent-points {
   .sign-in-menu {
     margin-right: 1em;
   }
-  .submission-confirmation {
-    margin: -2em -2em 1em -2em;
-    margin-bottom: 2em;
-  }
 }
 
 @media only screen and (min-width: 1300px) {
