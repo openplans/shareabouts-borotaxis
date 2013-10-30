@@ -66,6 +66,8 @@ a:hover {
   color: #000;
   display: block;
   height: 100%;
+  position: relative;
+  padding-left: 6.5em;
 }
 #site-title a:hover {}
 
@@ -73,6 +75,9 @@ a:hover {
   height: 100%;
   width: auto;
   margin-right: 0.5em;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 #site-name {
   display: none;
@@ -550,11 +555,8 @@ ul.recent-points {
 -------------------------------------------------------------- */
 
 @media only screen and (min-width: 768px) { /* menu is visible */
-  #site-logo {
-    float: left;
-  }
   #site-name {
-    display: inline;
+    display: block;
     font-size: 1.5em;
     line-height: 2.5;
     margin-right: 0.5em;
@@ -600,6 +602,10 @@ ul.recent-points {
     font-size: 1.75em;
     line-height: 3;
   }
+  #site-title a:link,
+  #site-title a:visited {
+    padding-left: 9em;
+  }
   .access {
     margin-top: 1.25em;
   }
@@ -628,6 +634,10 @@ ul.recent-points {
   #site-name {
     font-size: 2em;
     line-height: 3;
+  }
+  #site-title a:link,
+  #site-title a:visited {
+    padding-left: 11em;
   }
   .access {
     margin-top: 1.5em;
