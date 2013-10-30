@@ -31,20 +31,14 @@ place_types:
       - condition: 'true'
         icon:
           iconUrl: /static/css/images/hailman-puck-26x26.png
-          iconSize:
-            width: 26
-            height: 26
+          iconSize: [26, 26]
           iconAnchor: [13, 13]
         focus_icon:
           iconUrl: /static/css/images/hailman-marker-27x44.png
           shadowUrl: /static/css/images/marker-shadow-40x40.png
-          iconSize:
-            width: 27
-            height: 44
+          iconSize: [27, 44]
           iconAnchor: [14, 44]
-          shadowSize:
-            width: 40
-            height: 40
+          shadowSize: [40, 40]
           shadowAnchor: [7, 40]
 
 activity:

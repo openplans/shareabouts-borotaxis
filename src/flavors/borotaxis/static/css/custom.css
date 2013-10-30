@@ -320,7 +320,7 @@ a.reply-link:hover {
 .promotion {
   background: #fff;
   float: right;
-  margin: 0 0 0.75em 0.75em;
+  margin: 0 0 0.75em 0.75em !important;
   padding: 42px 0 0;
   position: relative;
 }
@@ -383,6 +383,7 @@ a.reply-link:hover {
   -ms-filter: "alpha(opacity=0)";
   zoom: 1;
 }
+#user_support:hover label,
 #user_support input[type=checkbox]:checked ~ label {
   background-image: url(images/tick-large.png);
 }
@@ -551,6 +552,14 @@ ul.recent-points {
 }
 
 
+/* =The Map
+-------------------------------------------------------------- */
+
+html.ie8 .locate-me {
+  display: none !important;
+}
+
+
 /* =Media Queries
 -------------------------------------------------------------- */
 
@@ -566,6 +575,8 @@ ul.recent-points {
   }
   .promotion {
     border: 0;
+    margin: 0 0 0.75em 0.75em;
+    padding: 42px 0 0;
   }
 
   a.close-bttn {
