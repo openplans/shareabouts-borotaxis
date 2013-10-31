@@ -128,53 +128,6 @@ a#nav-bttn:visited {
 }
 
 
-/* =User Menu
--------------------------------------------------------------- */
-
-.user-menu {}
-.header-avatar {
-  float: right;
-  height: 3em;
-  width: 3em;
-  margin: -0.5em 0 0 0.5em;
-}
-.current-user {
-  white-space: nowrap;
-}
-a.logout-btn {
-  display: block;
-  font-size: 0.85em;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.sign-in-prompt {
-  display: block;
-  font-size: 0.85em;
-  text-transform: uppercase;
-  margin: -0.5em 0 0.25em;
-  text-align: center;
-}
-.sign-in-menu-item {
-  float: left;
-  font-weight: bold;
-  margin-left: 0.5em;
-}
-.auth {
-  text-decoration: none;
-  display: block;
-  padding: 0.25em 0.5em;
-}
-a.twitter-btn {
-  background-color: #4099FF;
-  color: #fff !important;
-}
-a.facebook-btn {
-  background-color: #3b5998;
-  color: #fff !important;
-}
-
-
 /* =The Big Button to Add A New Point
 -------------------------------------------------------------- */
 
@@ -620,25 +573,6 @@ html.ie8 .locate-me {
   .access {
     margin-top: 1.25em;
   }
-  .user-menu {
-    margin-top: 0.5em;
-  }
-  .header-avatar {
-    float: right;
-    height: 4em;
-    width: 4em;
-    margin-top: -0.75em;
-  }
-  .current-user {
-    font-size: 1.25em;
-  }
-  a.logout-btn {
-    margin-top: 0.25em;
-  }
-  .sign-in-prompt,
-  .sign-in-menu {
-    margin-right: 1em;
-  }
 }
 
 @media only screen and (min-width: 1300px) {
@@ -652,8 +586,5 @@ html.ie8 .locate-me {
   }
   .access {
     margin-top: 1.5em;
-  }
-  .user-menu {
-    margin-top: 0;
   }
 }
