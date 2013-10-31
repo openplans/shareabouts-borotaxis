@@ -41,7 +41,7 @@ var Shareabouts = Shareabouts || {};
       // Use the page size as dictated by the server by default, unless
       // directed to do otherwise in the configuration.
       if (options.config.app.places_page_size) {
-        placeParams['page_size'] = options.config.app.places_page_size;
+        placeParams.page_size = options.config.app.places_page_size;
       }
 
       // Fetch all places by page
@@ -51,13 +51,32 @@ var Shareabouts = Shareabouts || {};
         success: function(collection, data) {
           var pageSize = data.features.length,
               totalPages = Math.ceil(data.metadata.length / pageSize),
+              $progressContainer = $('#map-progress'),
+              $currentProgress = $('#map-progress .current-progress'),
+              pagesComplete = 1,
+              onPageFetch = function() {
+                var percent = (pagesComplete/totalPages*100);
+                pagesComplete++;
+                $currentProgress.width(percent + '%');
+
+                if (pagesComplete === totalPages) {
+                  _.delay(function() {
+                    $progressContainer.hide();
+                  }, 2000);
+                }
+              },
               i;
 
           if (data.metadata.next) {
+            $progressContainer.show();
+
+            $currentProgress.width((pagesComplete/totalPages*100) + '%');
             for (i=2; i <= totalPages; i++) {
+
               self.collection.fetch({
                 remove: false,
-                data: _.extend(placeParams, { page: i })
+                data: _.extend(placeParams, { page: i }),
+                complete: onPageFetch
               });
             }
           }

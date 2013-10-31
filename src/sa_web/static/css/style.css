@@ -268,11 +268,15 @@ body {
   right: 0.5em;
   text-align: right;
 }
+.user-is-authenticated {
+  margin-right: 3.5em;
+}
 .header-avatar {
-  float: right;
   height: 3em;
   width: 3em;
-  margin: -0.5em 0 0 0.5em;
+  position: absolute;
+  top: -0.5em;
+  right: 0;
 }
 .current-user {
   white-space: nowrap;
@@ -431,6 +435,36 @@ a.add-place:before {
 #map .leaflet-control-attribution {
   font-size: 9px;
   -webkit-text-size-adjust: none; /* keep iPhone from getting smart with the font sizes */
+}
+
+/* Progress Bars */
+.progress-bar {
+  background: #777;
+  background: rgba(85,85,85,0.5);
+	height: 20px;
+	padding: 0 5px;
+	position: relative;
+	border-radius: 13px;
+	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+.progress-bar span {
+  background: #00aaff;
+	display: block;
+  width: 0%;
+	height: 10px;
+	position: relative;
+	top: 5px;
+	overflow: hidden;
+	border-radius: 5px;
+}
+#map-progress {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  bottom: auto;
+  left: 50px;
+  z-index: 1;
+  display:none;
 }
 
 /* Center Point: crosshairs and new point icon */
@@ -1350,6 +1384,22 @@ ul.recent-points {
   #map-container {
     bottom: 0;
   }
+  #powered-by {
+    line-height: 3em;
+    text-align: center;
+    width: 18em;
+    height: 4.75em;
+    right: -4px;
+    bottom: 2em;
+    border-right: 4px solid #777;
+    left: auto;
+    overflow: hidden;
+    box-shadow: -4px 4px 0 rgba(85, 85, 85, 0.5), inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+  #powered-by .nowrap {
+    display: block;
+    margin-top: -1.5em;
+  }
 
   #site-header a,
   #site-header button,
@@ -1406,29 +1456,20 @@ ul.recent-points {
     display: block;
   }
   .activity-enabled #powered-by {
-    line-height: 3em;
-    text-align: center;
-    width: 18em;
-    height: 4.75em;
-    right: -4px;
-    border-right: 4px solid #777;
-    left: auto;
-    overflow: hidden;
+    bottom: 0;
     box-shadow: 0 -4px 0 rgba(85, 85, 85, 0.5), inset 0 1px 0 rgba(255,255,255,0.25);
   }
 
-  .activity-enabled #powered-by .nowrap {
-    display: block;
-    margin-top: -1.5em;
+  .user-menu {
+    top: 1.25em;
   }
-  #user-menu {
-    padding-top: 0.75em;
+  .user-is-authenticated {
+    margin-right: 4.75em;
   }
-
   .header-avatar {
     height: 4em;
     width: 4em;
-    margin-top: -0.75em;
+    top: -0.75em;
   }
   .current-user {
     font-size: 1.25em;
