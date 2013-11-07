@@ -3,7 +3,7 @@ app:
   # HTML Title
   title: Boro Taxi
   # Header name
-  name: _(Where do you want Boro Taxi stands?)
+  name: "Where do you want #BoroTaxi stands?"
   # Meta description that will show up in Google search results
   meta_description: "_(The Taxi and Limousine Commission wants to know, where do you want Boro Taxi stands?)"
 
@@ -21,7 +21,8 @@ map:
   layers:
     - url: http://a.tiles.mapbox.com/v3/openplans.map-csmz5s4v/{z}/{x}/{y}.png
       attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
-
+    - url: http://{s}.tiles.mapbox.com/v3/openplans.map-2eefy58d/{z}/{x}/{y}.png
+    - url: http://a.tiles.mapbox.com/v3/openplans.TLC-upper/{z}/{x}/{y}.png
 # The keys show up in the dropdown list when you are adding a new place
 # The values map the place type to map icons (defined below).
 place_types:
@@ -52,7 +53,7 @@ place:
   add_button_label: _(Suggest a Location)
   action_text: _(suggested)
   title: _(Suggest a Location...)
-  help_text: _(Drag the map to the location you want to indicate. And remember, Boro Taxis can't make street hail pickups at the airports or in Manhattan below East 96th Street or West 110th Street, so don’t suggest locations in those areas.)
+  help_text: ""
   anonymous_name: _(Someone)
   submit_button_label: _(Submit)
   items:
@@ -185,3 +186,11 @@ pages:
     slug: about
     name: overview
     start_page: true
+    
+  - title: _(Help)
+    slug: help
+    name: help
+
+  - title: _(TLC Website)
+    external: true
+    url: http://www.nyc.gov/html/tlc/html/home/home.shtml
