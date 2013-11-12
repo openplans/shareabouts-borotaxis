@@ -365,7 +365,9 @@ a.reply-link:hover {
   font-size: 1.5em;
 }
 
-.place-header {
+.place-header h1 {
+  font-family: "Helvetica Neue", Arial, Helvetica, serif;
+  font-size: 1.5em;
 }
 
 .place-submission-details {
