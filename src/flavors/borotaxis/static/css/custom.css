@@ -77,7 +77,7 @@ a:hover {
   margin-right: 0.5em;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 3.5em;
 }
 #site-name {
   display: none;
@@ -89,7 +89,8 @@ a:hover {
 
 a#nav-bttn:link,
 a#nav-bttn:visited {
-  display: none !important;
+  color: #518021;
+  background-color: #e5ffcc;
 }
 
 
@@ -97,28 +98,12 @@ a#nav-bttn:visited {
 -------------------------------------------------------------- */
 
 .access {
-  display: block;
-  width: auto;
-  margin: 0.5em 0 0;
-  border: 0;
-  background: transparent;
-  text-align: left;
-  float: left;
-  position: relative;
-  z-index: 50;
-  font-size: 1.25em;
+  background-color: #e5ffcc;
+  border-color: #ccff99;
 }
-.access li {
-  position: relative;
-  border-bottom: 0;
-  font-size: 1em;
-}
+.access li {}
 .access a:link,
 .access a:visited {
-  float: left;
-  line-height: 2.5em;
-  padding: 0 0.5em;
-  text-decoration: none;
   background: transparent;
   color: #518021 !important;
 }
@@ -132,13 +117,11 @@ a#nav-bttn:visited {
 -------------------------------------------------------------- */
 
 a.add-place {
-/*  background-color: #ffcf40;*/
   background-color: #ccff99;
   color: #000;
   text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
 a.add-place:hover {
-/*  background-color: #ffdf80;*/
   color: #000;
 }
 
@@ -519,14 +502,15 @@ html.ie8 .locate-me {
 -------------------------------------------------------------- */
 
 @media only screen and (min-width: 768px) { /* menu is visible */
-  #site-name {
-    display: block;
-    font-size: 1.5em;
-    line-height: 2.5;
-    margin-right: 0.5em;
+  #site-header {
+    padding-right: 12em;
+  }
+  #site-logo {
+    left: 0;
   }
   .access {
     margin-top: 0.75em;
+    background-color: transparent;
   }
   .promotion {
     border: 0;
@@ -565,8 +549,10 @@ html.ie8 .locate-me {
 
 @media only screen and (min-width: 1024px) { /* ticker is visible */
   #site-name {
-    font-size: 1.75em;
+    display: block;
+    font-size: 1.5em;
     line-height: 3;
+    margin-right: 0.5em;
   }
   #site-title a:link,
   #site-title a:visited {
@@ -579,8 +565,12 @@ html.ie8 .locate-me {
 
 @media only screen and (min-width: 1300px) {
   #site-name {
-    font-size: 2em;
-    line-height: 3;
+    font-size: 1.75em;
+    line-height: 3.5;
+  }
+  #site-name {
+/*    font-size: 2em;*/
+/*    line-height: 3;*/
   }
   #site-title a:link,
   #site-title a:visited {
