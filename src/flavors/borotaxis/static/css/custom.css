@@ -225,6 +225,9 @@ textarea {
 }
 
 .required {}
+input:invalid, textarea:invalid {
+  box-shadow: none;
+}
 
 .bttn {
   color: #000;

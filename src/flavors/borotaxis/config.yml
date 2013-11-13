@@ -69,6 +69,8 @@ place:
       attrs:
         - key: placeholder
           value: _(This is a good location because...)
+        - key: required
+          value: required
 
     - prompt: _(Early Morning)
       type: checkbox
