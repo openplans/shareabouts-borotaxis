@@ -157,10 +157,12 @@ var Shareabouts = Shareabouts || {};
     },
     onClickAddPlaceBtn: function(evt) {
       evt.preventDefault();
+      S.Util.log('USER', 'map', 'new-place-btn-click');
       this.options.router.navigate('/place/new', {trigger: true});
     },
     onClickClosePanelBtn: function(evt) {
       evt.preventDefault();
+      S.Util.log('USER', 'panel', 'close-btn-click');
       this.options.router.navigate('/', {trigger: true});
     },
     // This gets called for every model that gets added to the place
@@ -304,6 +306,7 @@ var Shareabouts = Shareabouts || {};
 
       this.$panelContent.scrollTop(0);
       $(S).trigger('panelshow', [this.options.router, Backbone.history.getFragment()]);
+      S.Util.log('APP', 'panel-state', 'open');
     },
     showNewPin: function() {
       var map = this.mapView.map;
@@ -333,6 +336,7 @@ var Shareabouts = Shareabouts || {};
       self.$instructions.css('display', null).addClass('show');
       // also add a class to the add button, indicating that we are instructing
       self.$addButton.addClass('instructionsShowing');
+      S.Util.log('APP', 'map-instructions-state', 'shown');
     },
     hideInstructions: function(instant) {
       if (instant) {
@@ -342,12 +346,15 @@ var Shareabouts = Shareabouts || {};
       }
 
       this.$addButton.removeClass('instructionsShowing');
+      S.Util.log('APP', 'map-instructions-state', 'hidden');
     },
     hidePanel: function() {
       this.unfocusAllPlaces();
       this.$panel.hide();
 
       this.showInstructions();
+
+      S.Util.log('APP', 'panel-state', 'closed');
     },
     hideNewPin: function() {
       this.showCenterPoint();

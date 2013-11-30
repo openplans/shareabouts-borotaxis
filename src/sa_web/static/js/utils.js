@@ -65,11 +65,56 @@ var Shareabouts = Shareabouts || {};
       return false;
     },
 
-    // http://stackoverflow.com/questions/4127829/detect-browser-support-of-html-file-input-element
-    fileInputSupported: function() {
-      var dummy = document.createElement('input');
-      dummy.setAttribute('type', 'file');
-      return dummy.disabled === false;
+    // ====================================================
+    // Event and State Logging
+
+    log: function() {
+      var args = Array.prototype.slice.call(arguments, 0);
+
+      if (window.ga) {
+        this.analytics(args);
+      } else {
+        S.Util.console.log(args);
+      }
+    },
+
+    analytics: function(args) {
+      var firstArg = args.shift(),
+          secondArg,
+          measure,
+          measures = {
+            'map-zoom': 'dimension2',
+            'map-center': 'dimension3',
+            'map-bounds': 'dimension4',
+
+            'panel-state': 'dimension1',
+            'map-instructions-state': 'dimension5'
+          };
+
+      switch (firstArg.toLowerCase()) {
+        case 'route':
+          args = ['send', 'pageview'].concat(args);
+          break;
+
+        case 'user':
+          args = ['send', 'event'].concat(args);
+          break;
+
+        case 'app':
+          secondArg = args.shift();
+          measure = measures[secondArg];
+          if (!measure) {
+            this.console.error('No metrics or dimensions matching "' + secondArg + '"');
+            return;
+          }
+          args = ['set', measure].concat(args);
+          break;
+
+        default:
+          return;
+      }
+
+      window.ga.apply(window, args);
     },
 
     // For browsers without a console
@@ -79,6 +124,16 @@ var Shareabouts = Shareabouts || {};
       info: function(){},
       warn: function(){},
       error: function(){}
+    },
+
+    // ====================================================
+    // File and Image Handling
+
+    // http://stackoverflow.com/questions/4127829/detect-browser-support-of-html-file-input-element
+    fileInputSupported: function() {
+      var dummy = document.createElement('input');
+      dummy.setAttribute('type', 'file');
+      return dummy.disabled === false;
     },
 
     fixImageOrientation: function(canvas, orientation) {

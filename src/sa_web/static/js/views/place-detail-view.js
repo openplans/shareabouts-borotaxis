@@ -34,6 +34,14 @@ var Shareabouts = Shareabouts || {};
         supportConfig: this.options.supportConfig,
         userToken: this.options.userToken
       });
+
+      this.$el.on('click', '.share-link a', function(evt){
+
+        // HACK! Each action should have its own view and bind its own events.
+        var shareTo = this.getAttribute('data-shareto');
+
+        S.Util.log('USER', 'place', shareTo, self.model.getLoggingDetails());
+      });
     },
 
     render: function() {

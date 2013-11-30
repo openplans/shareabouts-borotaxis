@@ -5,11 +5,17 @@ var Shareabouts = Shareabouts || {};
 (function(S, $, console){
   S.MapView = Backbone.View.extend({
     events: {
-      'click .locate-me': 'geolocate'
+      'click .locate-me': 'onClickGeolocate'
     },
     initialize: function() {
       var self = this,
-          i, layerModel;
+          i, layerModel,
+          logUserZoom = function() {
+            S.Util.log('USER', 'map', 'zoom', self.map.getBounds().toBBoxString(), self.map.getZoom());
+          },
+          logUserPan = function(evt) {
+            S.Util.log('USER', 'map', 'drag', self.map.getBounds().toBBoxString(), self.map.getZoom());
+          };
 
       // Init the map
       self.map = L.map(self.el, self.options.mapConfig.options);
@@ -39,6 +45,20 @@ var Shareabouts = Shareabouts || {};
 
       // Init the layer view cache
       this.layerViews = {};
+
+      self.map.on('dragend', logUserPan);
+      $(self.map.zoomControl._zoomInButton).click(logUserZoom);
+      $(self.map.zoomControl._zoomOutButton).click(logUserZoom);
+
+      self.map.on('zoomend', function(evt) {
+        S.Util.log('APP', 'map-zoom', self.map.getZoom());
+      });
+
+      self.map.on('moveend', function(evt) {
+        var center = self.map.getCenter();
+        S.Util.log('APP', 'map-center', center.lat + ',' + center.lat);
+        S.Util.log('APP', 'map-bounds', self.map.getBounds().toBBoxString());
+      });
 
       // Bind data events
       self.collection.on('reset', self.render, self);
@@ -110,11 +130,12 @@ var Shareabouts = Shareabouts || {};
         this.geolocate();
       }
     },
-    geolocate: function(evt) {
-      if (evt) {
-        evt.preventDefault();
-      }
-
+    onClickGeolocate: function(evt) {
+      evt.preventDefault();
+      S.Util.log('USER', 'map', 'geolocate', this.map.getBounds().toBBoxString(), this.map.getZoom());
+      this.geolocate();
+    },
+    geolocate: function() {
       this.map.locate();
     },
     addLayerView: function(model) {

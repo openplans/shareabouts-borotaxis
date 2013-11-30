@@ -17,6 +17,16 @@ var Shareabouts = Shareabouts || {};
           startPageConfig,
           placeParams = {};
 
+      // Determine what gets sent to Google analytics about a place
+      S.PlaceModel.prototype.getLoggingDetails = function() {
+        return this.id + ' -- "' + this.get('name') + '"';
+      };
+      
+      // Log global route changes
+      this.bind('route', function(route, router) {
+        S.Util.log('ROUTE', self.getCurrentPath());
+      });
+
       this.collection = new S.PlaceCollection([]);
       this.activities = new S.ActionCollection(options.activity);
       this.appView = new S.AppView({
@@ -103,6 +113,12 @@ var Shareabouts = Shareabouts || {};
           this.navigate('page/' + startPageConfig.slug, {trigger: true});
         }
       }
+    },
+
+    getCurrentPath: function() {
+      var root = Backbone.history.root,
+          fragment = Backbone.history.fragment;
+      return root + fragment;
     },
 
     viewMap: function() {
